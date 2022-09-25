@@ -69,13 +69,14 @@ right click on the desktop and create new file with “desktop” extension, e.g
 Once you’ve created the file, open it in text editor and add the following content
 
 [Desktop Entry]
-Name=App Name
-Comment=Some comment
+Name=RTL_Air (dl)
+Comment=Scanner DL
 Icon=/usr/share/pixmaps/openbox.xpm
-Exec=/usr/bin/myapp
+Exec=/usr/bin/python /home/pi/Desktop/test.py
 Type=Application
 Encoding=UTF-8
-Terminal=false
+StartUpNotify=true
+Terminal=true
 
 #!/usr/bin/python
 
