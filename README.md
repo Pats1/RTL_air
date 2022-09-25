@@ -25,20 +25,16 @@ devices:
 ({
   type = "rtlsdr";
   index = 0;
-# serial = "00000384";
   gain = 39.0;
-# correction = 0;
-# mode = "multichannel";
-# sample_rate = 2.4;
-# buffers = 10;
-# centerfreq = 120.0;
-  squelch_threshold = -30;
+  mode = "scan";
+  sample_rate = 2.4;
+  buffers = 10;correction = 0;
   channels: (
     {
+      squelch_threshold = -25;
       freqs = ( 424825500, 424925500, 424750500);
-      modulation = "nfm";
-# or
-#     modulations = ( "am", "am", "am", "nfm" );
+      modulations = ( "nfm", "nfm", "nfm" );
+      labels = ( "dl1", "dl2", "dl3");
 #     afc = 0;
 #     notch = 100.0;
 #     notch_q = 10.0;
