@@ -76,3 +76,23 @@ Exec=/usr/bin/myapp
 Type=Application
 Encoding=UTF-8
 Terminal=false
+
+#!/usr/bin/python
+
+import subprocess
+x = subprocess.run(['sudo nano /usr/local/etc/rtl_airband_dl.conf'], shell=True)
+print(x)
+print(x.args)
+print(x.returncode)
+print(x.stdout)
+print(x.stderr)
+
+sudo chmod +x test.py
+
+import subprocess
+
+with open('list.txt', 'w') as f:
+    subprocess.run(['ls','-la'], stdout=f)
+   
+
+
