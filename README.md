@@ -80,7 +80,7 @@ Terminal=false
 #!/usr/bin/python
 
 import subprocess
-x = subprocess.run(['sudo nano /usr/local/etc/rtl_airband_dl.conf'], shell=True)
+x = subprocess.run(['sudo /usr/local/bin/rtl_airband -f -c /usr/local/etc/rtl_airband_dl.conf'], shell=True)
 print(x)
 print(x.args)
 print(x.returncode)
