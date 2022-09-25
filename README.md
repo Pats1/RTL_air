@@ -32,5 +32,25 @@ devices:
 # sample_rate = 2.4;
 # buffers = 10;
   centerfreq = 120.0;
-  channels: ( ... );
+  channels: (
+    {
+      freqs = ( 424825500, 424925500, 424750500);
+      modulation = "nfm";
+# or
+#     modulations = ( "am", "am", "am", "nfm" );
+#     afc = 0;
+#     notch = 100.0;
+#     notch_q = 10.0;
+#     bandwidth = 8000;
+      outputs: (
+  {
+    type = "pulse";
+#   server = "192.168.11.10";
+#   sink = ... /* default sink */
+#   stream_name = "Utility channels";
+#   continuous = false;
+  }
+);
+    }
+  );
 });
