@@ -31,7 +31,8 @@ devices:
 # mode = "multichannel";
 # sample_rate = 2.4;
 # buffers = 10;
-  centerfreq = 120.0;
+# centerfreq = 120.0;
+  squelch_threshold = -30;
   channels: (
     {
       freqs = ( 424825500, 424925500, 424750500);
