@@ -2,6 +2,7 @@
 https://github.com/szpajder/RTLSDR-Airband/wiki
 
 	sudo apt install libconfig-dev
+	sudo apt-get install build-essential cmake pkg-config libmp3lame-dev libshout3-dev libconfig++-dev
 
 ## wget -O RTLSDR-Airband-4.0.2.tar.gz https://github.com/szpajder/RTLSDR-Airband/archive/v4.0.2.tar.gz
 ## tar xvfz RTLSDR-Airband-4.0.2.tar.gz
