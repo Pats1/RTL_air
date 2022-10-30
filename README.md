@@ -10,7 +10,8 @@ Let's Make A Build Dir And cd Into:
 
 mkdir build
 cd build
-cmake -DPLATFORM=armv8-generic -DSOAPYSDR=ON -DNFM=ON -DPULSEAUDIO=ON ../
+cmake -DPLATFORM=armv8-generic -DSOAPYSDR=ON -DNFM=ON -DPULSEAUDIO=ON ../          pi4
+cmake -DPLATFORM=native -DSOAPYSDR=ON -DNFM=ON -DPULSEAUDIO=ON ../                 laptop
 cmake ../
 make
 sudo make install
