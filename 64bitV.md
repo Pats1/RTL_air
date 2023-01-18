@@ -25,6 +25,16 @@ blacklist dvb_usb_rtl28xxu
 blacklist rtl2832
 blacklist rtl2830
 
+#test 
+rtl_test -t
+rtl_fm -M wbfm -f 89.0M | play -r 32k -t raw -e s -b 16 -c 1 -V1 -
+rtl_fm -f 89.0M -M fm -s 170k -A fast -r 32k -l 0 -E deemp | play -r 32k ...
+rtl_fm -M fm -f 154.42M -f 154.75M -f 154.89M -s 12k -g 50 -l 70 | play -r 12k -t raw -e s -b 16 -c 1 -V1 -
+rtl_fm -M am -f 118M:137M:25k -s 12k -g 50 -l 280 | play -r 12k -t raw -e s -b 16 -c 1 -V1 -
+
+rtl_fm -f 169.625M -s 22050 | multimon-ng -t raw -a POCSAG2400 -e -n -f alpha --timestamp /dev/stdin
+rtl_fm -f 169.625M -s 22050 | multimon-ng -t raw -e -a POCSAG2400 -f alpha /dev/stdin > /var/www/pager/Pager.txt | tail -f /var/www/pager/Pager.txt
+
 # Fetch and compile multimonNG    
 cd ~/Downloads/
 sudo git clone https://github.com/EliasOenal/multimonNG.git
@@ -74,3 +84,44 @@ Type=Application
 Encoding=UTF-8
 StartUpNotify=true
 Terminal=true
+
+
+sudo nano /usr/local/etc/rtl_airband.conf
+Paste In The Following, Starting With devices:
+Remember To Update The Password For Icecast2:
+
+devices:
+({
+type = "rtlsdr";
+index = 0;    #RTL-SDR Number
+gain = 30;    #Gain Setting
+correction = 0;
+mode = "scan";
+channels:
+(
+{
+freqs = ( 118.25, 118.6 );        #Add Freq's Here
+#labels = ( "Tower A", "Tower B", "Tower Control"); #Label Update
+outputs: (
+{
+type = "icecast";
+server = "127.0.0.1";
+port = 8000;   #Port Number Setting
+mountpoint = "stream.mp3";
+name = "Airband Voice";   #Name Of Your Choice
+genre = "Air Traffic Control";
+description = "My Local Air Traffic"; #Description Of Your Choice
+username = "pi";
+password = "sdr";   #Icecast2 Password
+send_scan_freq_tags = false;
+}
+);
+}
+);
+}
+);
+Start RTL_AirBand In Terminal:
+
+sudo rtl_airband -f
+
+Open Up A Browser To Listen And Use The IP Of The Pi With 192.168.1.35:8000/stream.mp3
