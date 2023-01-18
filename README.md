@@ -4,13 +4,12 @@ https://github.com/szpajder/RTLSDR-Airband/wiki
 	sudo apt install libconfig-dev
 	sudo apt-get install build-essential cmake pkg-config libmp3lame-dev libshout3-dev libconfig++-dev
 
-## wget -O RTLSDR-Airband-4.0.2.tar.gz https://github.com/szpajder/RTLSDR-Airband/archive/v4.0.2.tar.gz
-## tar xvfz RTLSDR-Airband-4.0.2.tar.gz
-## cd RTLSDR-Airband-4.0.2
+## wget -O RTLSDR-Airband-4.0.2.tar.gz https://github.com/szpajder/RTLSDR-Airband/archive/v4.0.3.tar.gz
+## tar xvfz RTLSDR-Airband-4.0.3.tar.gz
+## cd RTLSDR-Airband-4.0.3
 Let's Make A Build Dir And cd Into: 
 
-mkdir build
-cd build
+mkdir build && cd build
 cmake -DPLATFORM=armv8-generic -DSOAPYSDR=ON -DNFM=ON -DPULSEAUDIO=ON ../          pi4
 cmake -DPLATFORM=native -DSOAPYSDR=ON -DNFM=ON -DPULSEAUDIO=ON ../                 laptop
 cmake ../
