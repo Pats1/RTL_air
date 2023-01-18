@@ -34,9 +34,14 @@ sudo ldconfig
 
 
 instaling RTL-AIR with FM demodulator  (https://github.com/szpajder/RTLSDR-Airband) look for latest release and adapt numbers)
+sudo apt-get install libfftw3-dev
+apt-get install librtlsdr-dev
+
 cd ~/Downloads/
 wget -O RTLSDR-Airband-4.0.3.tar.gz https://github.com/szpajder/RTLSDR-Airband/archive/v4.0.3.tar.gz
 tar xvfz RTLSDR-Airband-4.0.3.tar.gz
 cd RTLSDR-Airband-4.0.3
 mkdir build && cd build
-cmake -DPLATFORM=armv8-generic -DNFM=ON -DPULSEAUDIO=ON ../
+cmake -DPLATFORM=armv8-generic -DNFM=ON -DPULSEAUDIO=ON -DMIRISDR=OFF -DSOAPYSDR=OFF ../
+make
+sudo make install
