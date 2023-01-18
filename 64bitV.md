@@ -129,3 +129,8 @@ Open Up A Browser To Listen And Use The IP Of The Pi With 192.168.1.35:8000/stre
 
 rtl_tcp -d 1 -p 2200 -a 192.168.1.35       "Remember To Change The IP To Match The Pi"
 rtl_tcp -d 1 -p 2201 -a 192.168.1.35
+
+
+sudo apt install rtl-sdr
+sudo rtl_eeprom -d 2 - s 00000002 -d is divice index - s is new serial
+after replug check sudo rtl_eeprom -d 2
