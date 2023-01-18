@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=RTL_Server 1
+Comment=port 2020
+Icon=/home/pats/Pictures/server1.png
+Exec=/usr/bin/python /home/pi/Desktop/server1.py
+Type=Application
+Encoding=UTF-8
+StartUpNotify=true
+Terminal=true
