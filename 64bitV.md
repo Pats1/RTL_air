@@ -125,3 +125,7 @@ Start RTL_AirBand In Terminal:
 sudo rtl_airband -f
 
 Open Up A Browser To Listen And Use The IP Of The Pi With 192.168.1.35:8000/stream.mp3
+
+
+rtl_tcp -d 1 -p 2200 -a 192.168.1.35       "Remember To Change The IP To Match The Pi"
+rtl_tcp -d 1 -p 2201 -a 192.168.1.35
