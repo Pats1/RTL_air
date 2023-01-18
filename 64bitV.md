@@ -3,6 +3,9 @@ sudo apt-get install cmake pkg-config libmp3lame-dev libshout3-dev libconfig++-d
 
 sudo apt-get install pulseaudio
 
+cd ~/Downloads/
+wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
+
 # Fetch and compile rtl-sdr source
 cd ~/Downloads/
 git clone git://git.osmocom.org/rtl-sdr.git
@@ -45,3 +48,29 @@ mkdir build && cd build
 cmake -DPLATFORM=armv8-generic -DNFM=ON -DPULSEAUDIO=ON -DMIRISDR=OFF -DSOAPYSDR=OFF ../
 make
 sudo make install
+
+make file air.py and paste
+#!/usr/bin/python
+
+import subprocess
+x = subprocess.run(['sudo /usr/local/bin/rtl_airband -f -c /usr/local/etc/rtl_airband_dl.conf'], shell=True)
+print(x)
+print(x.args)
+print(x.returncode)
+print(x.stdout)
+print(x.stderr)
+
+sudo chmod +x air.py
+
+right click on the desktop and create new file with “desktop” extension, e.g. MyApp.desktop.
+Once you’ve created the file, open it in text editor and add the following content
+
+[Desktop Entry]
+Name=RTL_Air (dl)
+Comment=Scanner DL
+Icon=/usr/share/pixmaps/openbox.xpm
+Exec=/usr/bin/python /home/pi/Desktop/air.py
+Type=Application
+Encoding=UTF-8
+StartUpNotify=true
+Terminal=true
