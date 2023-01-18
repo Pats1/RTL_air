@@ -143,6 +143,7 @@ cd patssdr
 wget -O server1.py https://github.com/Pats1/RTL_air/blob/main/server1.py
 sudo chmod +x server1.py
 wget -O server1.png https://github.com/Pats1/RTL_air/blob/main/server1.png
+wget -O server2.png https://github.com/Pats1/RTL_air/blob/main/server2.png
 cd /home/pats/Desktop
 wget -O SDR_TCP_SERVER_1.desktop https://github.com/Pats1/RTL_air/blob/main/SDR_TCP_SERVER_1.desktop
-
+server2.png
