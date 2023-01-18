@@ -134,3 +134,15 @@ rtl_tcp -d 1 -p 2201 -a 192.168.1.35
 sudo apt install rtl-sdr
 sudo rtl_eeprom -d 2 - s 00000002 -d is divice index - s is new serial
 after replug check sudo rtl_eeprom -d 2
+
+
+cd ~/Downloads/
+mkdir patssdr
+cd patssdr
+
+wget -O server1.py https://github.com/Pats1/RTL_air/blob/main/server1.py
+sudo chmod +x server1.py
+wget -O server1.png https://github.com/Pats1/RTL_air/blob/main/server1.png
+cd /home/pats/Desktop
+wget -O SDR_TCP_SERVER_1.desktop https://github.com/Pats1/RTL_air/blob/main/SDR_TCP_SERVER_1.desktop
+
