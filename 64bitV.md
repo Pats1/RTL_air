@@ -158,3 +158,12 @@ wget -O server2.png https://github.com/Pats1/RTL_air/blob/main/server2.png
 cd /home/pats/Desktop
 wget -O SDR_TCP_SERVER_1.desktop https://github.com/Pats1/RTL_air/blob/main/SDR_TCP_SERVER_1.desktop
 server2.png
+
+
+wget https://github.com/x20mar/darkice-with-mp3-for-raspberry-pi/blob/master/darkice_1.0.1-999~mp3+1_armhf.deb?raw=true
+mv darkice_1.0.1-999~mp3+1_armhf.deb?raw=true darkice_1.0.1-999~mp3+1_armhf.deb
+sudo apt-get install libmp3lame0 libtwolame0
+sudo dpkg -i darkice_1.0.1-999~mp3+1_armhf.deb
+sudo apt-get install icecast2
+
+https://circuitdigest.com/microcontroller-projects/raspberry-pi-internet-radio-and-streaming-station
