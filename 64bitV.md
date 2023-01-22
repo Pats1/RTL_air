@@ -33,6 +33,17 @@ rtl_fm -M fm -f 154.42M -f 154.75M -f 154.89M -s 12k -g 50 -l 70 | play -r 12k -
 rtl_fm -M am -f 118M:137M:25k -s 12k -g 50 -l 280 | play -r 12k -t raw -e s -b 16 -c 1 -V1 -
 
 rtl_fm -f 169.625M -s 22050 | multimon-ng -t raw -a POCSAG2400 -e -n -f alpha --timestamp /dev/stdin
+
+
+
+rtl_test -t
+rtl_fm -f 169.625M -s 22050 | multimon-ng -t raw -a POCSAG2400 -n -e -f auto -b 0 -C BE --timestamp /dev/stdin
+rtl_fm -f 169.625M -s 22050 | multimon-ng -t raw -a POCSAG2400 -e -n --timestamp /dev/stdin
+rtl_fm -f 169.625M -s 22050 | multimon-ng -t raw -e -a POCSAG2400 -f alpha /dev/stdin > /var/www/pager/Pager.txt | tail -f /var/www/pager/Pager.txt
+run in dir where multimon & rtl is 
+./rtl_fm -f 169.625M -s 22050 -g 48 - | ./multimon-ng -a POCSAG2400 -A -t raw -
+./rtl_fm -f 169.625M -s 22050 | ./multimon-ng -a POCSAG2400 -t raw - > pagers.txt
+
 rtl_fm -f 169.625M -s 22050 | multimon-ng -t raw -e -a POCSAG2400 -f alpha /dev/stdin > /var/www/pager/Pager.txt | tail -f /var/www/pager/Pager.txt
 
 # Fetch and compile multimonNG    
