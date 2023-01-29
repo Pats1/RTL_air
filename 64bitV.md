@@ -236,3 +236,5 @@ sudo systemctl restart icecast2.service
 You can also check if new configuration file worked with Status command:
 
 sudo systemctl status icecast2.service
+  
+  https://peppe8o.com/open-source-web-radio-with-icecast-and-raspberry-pi/
