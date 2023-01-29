@@ -86,6 +86,8 @@ sudo chmod +x air.py
 right click on the desktop and create new file with “desktop” extension, e.g. MyApp.desktop.
 Once you’ve created the file, open it in text editor and add the following content
 
+
+
 [Desktop Entry]
 Name=RTL_Air (dl)
 Comment=Scanner DL
@@ -96,10 +98,44 @@ Encoding=UTF-8
 StartUpNotify=true
 Terminal=true
 
-
+https://github.com/charlie-foxtrot/RTLSDR-Airband
 sudo nano /usr/local/etc/rtl_airband.conf
 Paste In The Following, Starting With devices:
 Remember To Update The Password For Icecast2:
+
+this works
+devices:
+({
+  type = "rtlsdr";
+  index = 0;
+  gain = 39.0;
+  mode = "scan";
+  sample_rate = 2.4;
+  buffers = 10;
+  correction = 0;
+  serial = "00000001";
+  channels: (
+    {
+      squelch_threshold = -25;
+      freqs = ( 424888000, 424890000, 424710000, 424750000, 424925000, 424950000, 424960500, 424962500);
+      modulations = ( "nfm", "nfm", "nfm", "nfm", "nfm", "nfm", "nfm", "nfm");
+      labels = ( "dl1", "dl2", "dl3", "dl4", "dl5", "dl6", "dl7", "dl8");
+      outputs: (
+  {
+    type = "icecast";
+    server = "192.168.1.35";
+    port = 8000;
+    mountpoint = "dl.mp3";
+    name = "DL scanner";
+    username = "source";
+    password = "VH@leenek";
+    description = "Pats SDR DL";
+    genre = "SDR trafic"
+ }
+);
+    }
+  );
+});
 
 devices:
 ({
@@ -114,18 +150,16 @@ channels:
 freqs = ( 118.25, 118.6 );        #Add Freq's Here
 #labels = ( "Tower A", "Tower B", "Tower Control"); #Label Update
 outputs: (
-{
-type = "icecast";
-server = "127.0.0.1";
-port = 8000;   #Port Number Setting
-mountpoint = "stream.mp3";
-name = "Airband Voice";   #Name Of Your Choice
-genre = "Air Traffic Control";
-description = "My Local Air Traffic"; #Description Of Your Choice
-username = "pi";
-password = "sdr";   #Icecast2 Password
-send_scan_freq_tags = false;
-}
+  {
+    type = "icecast";
+    server = "192.168.1.35";
+    port = 8000;
+    mountpoint = "dl.mp3";
+    name = "DL scanner";
+    username = "source";
+    password = "VH@leenek";
+    send_scan_freq_tags = true;
+ }
 );
 }
 );
@@ -134,6 +168,9 @@ send_scan_freq_tags = false;
 Start RTL_AirBand In Terminal:
 
 sudo rtl_airband -f
+
+rtl_airband -f -c /home/pats/Downloads/RTLSDR-Airband-4.0.3/config/delijn.conf
+
 
 Open Up A Browser To Listen And Use The IP Of The Pi With 192.168.1.35:8000/stream.mp3
 
