@@ -210,7 +210,11 @@ ICECAST
 
 sudo cp /etc/icecast2/icecast.xml /etc/icecast2/icecast.xml.backup
 sudo nano /etc/icecast2/icecast.xml
-
+<sources> ==> 3 
+<burst-size> ==> 12288
+<burst-on-connect> ==> 0
+<source-password> ==> VH@....
+<relay-password> ==> VH@...
 Add following code before final “</icecast>” row:
 
     <mount type="normal">
