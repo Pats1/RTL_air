@@ -167,3 +167,31 @@ sudo dpkg -i darkice_1.0.1-999~mp3+1_armhf.deb
 sudo apt-get install icecast2
 
 https://circuitdigest.com/microcontroller-projects/raspberry-pi-internet-radio-and-streaming-station
+
+ICECAST
+
+
+sudo cp /etc/icecast2/icecast.xml /etc/icecast2/icecast.xml.backup
+sudo nano /etc/icecast2/icecast.xml
+
+Add following code before final “</icecast>” row:
+
+    <mount type="normal">
+        <mount-name>/example.ogg</mount-name>
+        <username>pats</username>
+        <password>VH@leenek</password>
+        <max-listeners>3</max-listeners>
+        <dump-file>/tmp/dump-example.ogg</dump-file>
+        <burst-size>65536</burst-size>
+        <hidden>1</hidden>
+        <public>1</public>
+        <on-connect>/home/icecast/bin/stream-start</on-connect>
+        <on-disconnect>/home/icecast/bin/stream-stop</on-disconnect>
+    </mount>
+    
+Close and save your file. Restart icecast to make changes running:
+
+sudo systemctl restart icecast2.service
+You can also check if new configuration file worked with Status command:
+
+sudo systemctl status icecast2.service
