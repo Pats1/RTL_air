@@ -238,3 +238,10 @@ You can also check if new configuration file worked with Status command:
 sudo systemctl status icecast2.service
   
   https://peppe8o.com/open-source-web-radio-with-icecast-and-raspberry-pi/
+  
+  OPENWEBRX
+  All commands must be run as root. If you're using sudo, please use sudo su - before executing the commands below.
+  wget -O - https://repo.openwebrx.de/debian/key.gpg.txt | gpg --dearmor -o /usr/share/keyrings/openwebrx.gpg
+echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
+apt-get update
+apt-get install openwebrx
