@@ -245,3 +245,10 @@ sudo systemctl status icecast2.service
 echo "deb [signed-by=/usr/share/keyrings/openwebrx.gpg] https://repo.openwebrx.de/debian/ bullseye main" > /etc/apt/sources.list.d/openwebrx.list
 apt-get update
 apt-get install openwebrx
+  
+sudo systemctl enable openwebrx enables automatic startup of the receiver at boot
+sudo systemctl disable openwebrx disables it again
+sudo systemctl start openwebrx starts the service manually
+sudo systemctl stop openwebrx stops the service manually
+sudo systemctl restart openwebrx restarts the service. This is very useful after changing configuration.
+  http://192.168.1.35:8073/
